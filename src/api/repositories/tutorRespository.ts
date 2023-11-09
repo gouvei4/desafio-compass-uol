@@ -27,4 +27,13 @@ export class TutorRepository {
       return "Tutor não encontrado";
     }
   }
+  async delete(tutorId: number)  {
+    const tutorIndex = Tutors.findIndex((tutor: Tutor) => tutor.id === tutorId);
+    if (tutorIndex !== -1) {
+      Tutors.splice(tutorIndex, 1);
+      return "Tutor foi excluído com sucesso!"
+    }else {
+      return "Tutor não encontrado!"
+    }
+  }
 }
