@@ -1,6 +1,6 @@
 import { Tutor } from "../models/tutor";
 
-const Tutors: Tutor[] = [
+export const Tutors: Tutor[] = [
   {
     id: 1,
     name: "Afonso",
