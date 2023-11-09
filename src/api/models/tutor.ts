@@ -7,5 +7,5 @@ export interface Tutor {
   email: string;
   date_of_birth: Date;
   zip_code: number;
-  pets: Pet[];
+  pets?: Pet[];
 }
