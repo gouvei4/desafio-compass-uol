@@ -26,21 +26,23 @@ export const Tutors: Tutor[] = [
         date_of_birth: new Date("01-06-1998"),
       },
     ],
-  }, {
+  },
+  {
     id: 2,
     name: "Camila",
     phone: 998956234,
     email: "lavaiele@gmail.com",
     date_of_birth: new Date("07-12-1998"),
-    zip_code: 11920-229,
+    zip_code: 11920 - 229,
     pets: [
-        {
-            id: 1,
-            name: "Zezinho",
-            species: "cat",
-            carry: "P",
-            weight: 2,
-            date_of_birth: new Date("06-10-2023")
-    }]
-  }
+      {
+        id: 1,
+        name: "Zezinho",
+        species: "cat",
+        carry: "P",
+        weight: 2,
+        date_of_birth: new Date("06-10-2023"),
+      },
+    ],
+  },
 ];
