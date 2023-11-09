@@ -18,3 +18,9 @@ export const updateTutorService = async (tutorId: number, props: Partial<Tutor>)
   const data = await tutorRepository.update(tutorId, props);
   return data
 }
+
+export const deleteTutorService = async (tutorId: number) => {
+  const tutorRepository = new TutorRepository();
+  const data = await tutorRepository.delete(tutorId);
+  return data
+}

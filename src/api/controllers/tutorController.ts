@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Tutor } from "../models/tutor";
-import { createTutorService, findAllTutors, updateTutorService  } from "../services/tutorServices";
+import { createTutorService, deleteTutorService, findAllTutors, updateTutorService  } from "../services/tutorServices";
 
 export const getAllTutors = async (request: Request, response: Response) => {
   try {
@@ -32,4 +32,12 @@ export const updateTutor = async (request: Request, response: Response) => {
   }
 };
 
-export const deleteTutor = (request: Request, response: Response) => {};
+export const deleteTutor = async (request: Request, response: Response) => {
+  try {
+    const tutorId = Number(request.params.id);
+    const result = await deleteTutorService(tutorId);
+    response.status(200).json(result)
+  } catch (error: any) {
+    response.status(200).json((error as Error).message)
+  }
+};
