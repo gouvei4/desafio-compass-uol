@@ -1,7 +1,7 @@
 import { Tutors } from "../db/data";
 import { Pet } from "../models/pet";
 
-export class petRepository {
+export class PetRepository {
   create(props: Pet, tutorId: number) {
     const tutor = Tutors.find((tutor) => tutor.id === tutorId);
     if (tutor) {
