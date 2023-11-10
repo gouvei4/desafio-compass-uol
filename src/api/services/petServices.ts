@@ -12,3 +12,4 @@ export const updatePetServices = async (tutorId: number, petId: number, props: P
     const data = await petRepository.update(tutorId, petId, props)
     return data;
 }
+

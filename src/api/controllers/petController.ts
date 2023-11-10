@@ -23,4 +23,6 @@ export const updatePet = async (request: Request, response: Response) => {
   } catch (error: any) {
     response.status(400).json((error as Error).message)
   }
+
 };
+
