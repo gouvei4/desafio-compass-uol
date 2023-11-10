@@ -25,4 +25,13 @@ export const updatePet = async (request: Request, response: Response) => {
   }
 
 };
-
+export const deletePet = async (request: Request, response: Response) => {
+  try {
+    const tutorId = Number(request.params.tutorId);
+    const petId = Number(request.params.petId);
+    const petDelete = await deletePetServices(tutorId, petId)
+    response.status(204).json(petDelete)
+  } catch (error: any) {
+    response.status(400).json((error as Error).message)
+  }
+}
