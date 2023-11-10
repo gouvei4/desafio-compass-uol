@@ -13,3 +13,8 @@ export const updatePetServices = async (tutorId: number, petId: number, props: P
     return data;
 }
 
+export const deletePetServices = async (tutorId: number, petId: number) => {
+    const petRepository = new PetRepository();
+    const data = await petRepository.delete(tutorId, petId);
+    return data;
+}
