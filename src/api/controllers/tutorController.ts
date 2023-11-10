@@ -28,7 +28,7 @@ export const updateTutor = async (request: Request, response: Response) => {
     const update = await updateTutorService(tutorId, updateTutorProps)
     response.status(200).json(update)
   } catch(error: any) {
-    response.status(200).json((error as Error).message)
+    response.status(400).json((error as Error).message)
   }
 };
 
@@ -38,6 +38,6 @@ export const deleteTutor = async (request: Request, response: Response) => {
     const result = await deleteTutorService(tutorId);
     response.status(200).json(result)
   } catch (error: any) {
-    response.status(200).json((error as Error).message)
+    response.status(400).json((error as Error).message)
   }
 };

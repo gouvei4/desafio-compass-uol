@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import { tutorRoutes } from "./api/routes/tutorRoutes";
 import { petRoutes } from "./api/routes/petRoutes";
 
