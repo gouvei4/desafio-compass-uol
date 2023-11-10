@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createPetServices, updatePetServices } from "../services/petServices";
+import { createPetServices, deletePetServices, updatePetServices } from "../services/petServices";
 import { Pet } from "../models/pet";
 
 export const createPet = async (request: Request, response: Response) => {
