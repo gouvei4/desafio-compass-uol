@@ -1,9 +1,11 @@
-import { Request, Response, response } from "express";
+import { Request, Response } from "express";
 import { createPetServices } from "../services/petServices";
+import { Pet } from "../models/pet";
 
 export const createPet = async (request: Request, response: Response) => {
   try {
-    const {props, tutorId} = request.body
+    const props: Pet = request.body
+    const tutorId = Number(request.params.tutorId)
     const newPet = await createPetServices(props, tutorId);
     response.status(200).json(newPet);
   } catch (error: any) {

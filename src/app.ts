@@ -1,11 +1,13 @@
 import express, { Express, Request, Response } from "express";
-import { routers } from "./api/routes/tutorRoutes";
+import { tutorRoutes } from "./api/routes/tutorRoutes";
+import { petRoutes } from "./api/routes/petRoutes";
 
 const app: Express = express();
 const port = 5000;
 
 app.use(express.json())
-app.use("/", routers);
+app.use("/", tutorRoutes);
+app.use("/", petRoutes)
 
 app.listen(port, () => {
   console.log("Rodando");
