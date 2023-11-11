@@ -1,6 +1,11 @@
+import { rejects } from "assert";
 import { Tutors } from "../db/data";
 import { Pet } from "../models/pet";
 import { Tutor } from "../models/tutor";
+
+const ERROR_TUTOR_NOT_FOUND = "O tutor não foi encontrado!";
+const ERROR_TUTOR_NOT_PET = "O tutor não possui pets cadastrados!";
+const ERROR_PET_NOT_FOUND = "Pet não encontrado no Tutor";
 
 export class PetRepository {
   async create(props: Pet, tutorId: number) {
@@ -26,36 +31,35 @@ export class PetRepository {
         return "Pet não encontrado no Tutor";
       }
     } else {
-      return "Tutor não encontrado!";
+      return ERROR_TUTOR_NOT_FOUND;
     }
   }
-
-  async delete(tutorId: number, petId: number) {
+  async delete(tutorId: number, petId: number): Promise<string> {
     try {
       const tutorIndex = Tutors.findIndex(
         (tutor: Tutor) => tutor.id === tutorId,
       );
 
-      if (tutorIndex !== -1) {
-        const petIndex = Tutors[tutorIndex].pets?.findIndex(
-          (pet: Pet) => pet.id === petId,
-        );
-
-        if (
-          petIndex !== undefined &&
-          petIndex !== -1 &&
-          Tutors[tutorIndex].pets
-        ) {
-          return "O pet foi excluido com sucesso!";
-        } else {
-          return "O pet não foi encontrado no Tutor!";
-        }
-      } else {
-        ("Tutor não foi encontrado!");
+      if (tutorIndex === -1) {
+        return ERROR_TUTOR_NOT_FOUND;
       }
-    } catch (error) {
-      console.error("Erro ao excluir pet: ", error);
-      throw new Error("Erro ao excluir pet!");
+
+      const tutor = Tutors[tutorIndex];
+
+      if (!tutor.pets) {
+        return ERROR_TUTOR_NOT_PET;
+      }
+
+      const petIndex = tutor.pets.findIndex((pet) => pet.id === petId);
+
+      if (petIndex === -1) {
+        return ERROR_PET_NOT_FOUND;
+      }
+
+      tutor.pets.splice(petIndex, 1);
+      return "Pet excluído com sucesso!";
+    } catch (error: any) {
+      throw new Error("Erro ao excluir o pet: " + error.message);
     }
   }
 }
