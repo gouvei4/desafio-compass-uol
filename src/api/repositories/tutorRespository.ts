@@ -1,6 +1,8 @@
 import { Tutors } from "../db/data";
 import { Tutor } from "../models/tutor";
 
+const ERROR_TUTOR_NOT_FOUND = "O tutor não foi encontrado!";
+
 export class TutorRepository {
   async all() {
     return Tutors;
@@ -24,16 +26,16 @@ export class TutorRepository {
       Tutors[tutorIndex] = { ...Tutors[tutorIndex], ...props };
       return "Tutor atualizado";
     } else {
-      return "Tutor não encontrado";
+      return ERROR_TUTOR_NOT_FOUND;
     }
   }
-  async delete(tutorId: number)  {
+  async delete(tutorId: number) {
     const tutorIndex = Tutors.findIndex((tutor: Tutor) => tutor.id === tutorId);
     if (tutorIndex !== -1) {
       Tutors.splice(tutorIndex, 1);
-      return "Tutor foi excluído com sucesso!"
-    }else {
-      return "Tutor não encontrado!"
+      return "Tutor foi excluído com sucesso!";
+    } else {
+      return ERROR_TUTOR_NOT_FOUND;
     }
   }
 }

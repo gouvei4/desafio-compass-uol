@@ -30,8 +30,8 @@ export const deletePet = async (request: Request, response: Response) => {
     const tutorId = Number(request.params.tutorId);
     const petId = Number(request.params.petId);
     const petDelete = await deletePetServices(tutorId, petId)
-    response.status(204).json({ message: petDelete})
+    response.status(200).json({ message: petDelete})
   } catch (error: any) {
-    response.status(400).json((error as Error).message)
+    response.status(404).json((error as Error).message)
   }
 }
