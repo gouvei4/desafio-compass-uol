@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 import { Tutors } from "../db/data";
 import { Pet } from "../models/pet";
 import { Tutor } from "../models/tutor";
@@ -8,32 +7,35 @@ const ERROR_TUTOR_NOT_PET = "O tutor não possui pets cadastrados!";
 const ERROR_PET_NOT_FOUND = "Pet não encontrado no Tutor";
 
 export class PetRepository {
+  // POST
   async create(props: Pet, tutorId: number) {
-    const tutor = await Tutors.find((tutor) => tutor.id === tutorId);
-    if (tutor) {
-      const tutorIndex = Tutors.findIndex((tutor) => tutor.id === tutorId);
-      Tutors[tutorIndex].pets?.push(props);
+    const tutor = await Tutors.findIndex((tutor) => tutor.id === tutorId);
+    if (tutor !== -1) {
+      Tutors[tutor].pets?.push(props);
       return "Pet adicionado!";
     }
     return "Tutor não encontrado";
   }
 
+  // PUT
   async update(tutorId: number, petId: number, props: Partial<Pet>) {
     const tutor = Tutors.find((tutor: Tutor) => tutor.id === tutorId);
 
-    if (tutor) {
-      const petIndex = tutor.pets?.findIndex((pet) => pet.id === petId);
-
-      if (petIndex !== undefined && petIndex !== -1 && tutor.pets) {
-        tutor.pets[petIndex] = { ...tutor.pets[petIndex], ...props };
-        return "Pet atualizado";
-      } else {
-        return "Pet não encontrado no Tutor";
-      }
-    } else {
+    if (!tutor) {
       return ERROR_TUTOR_NOT_FOUND;
     }
+
+    const petIndex = tutor.pets?.findIndex((pet) => pet.id === petId);
+
+    if (petIndex !== undefined && petIndex !== -1 && tutor.pets) {
+      tutor.pets[petIndex] = { ...tutor.pets[petIndex], ...props };
+      return "Pet atualizado";
+    }
+
+    return "Pet não encontrado no Tutor";
   }
+
+  // DELETE
   async delete(tutorId: number, petId: number): Promise<string> {
     try {
       const tutorIndex = Tutors.findIndex(
@@ -59,7 +61,7 @@ export class PetRepository {
       tutor.pets.splice(petIndex, 1);
       return "Pet excluído com sucesso!";
     } catch (error: any) {
-      throw new Error("Erro ao excluir o pet: " + error.message);
+      throw new Error(`Erro ao excluir o pet: ${error.message}`);
     }
   }
 }
