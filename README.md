@@ -9,13 +9,13 @@ API desenvolvida para uma clínica veterinaria, onde você cria tutores e adicio
 OS X & Linux:
 
 ```sh
-npm install my-crazy-module --save
+npm install 
 ```
 
 Windows:
 
 ```sh
-edit autoexec.bat
+npm install 
 ```
 
 ## Usage example
