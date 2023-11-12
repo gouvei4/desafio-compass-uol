@@ -2,8 +2,6 @@
 
 API desenvolvida para uma clínica veterinaria, onde você cria tutores e adiciona pets, conseguindo também excluir tutores e pets!
 
-![](header.png)
-
 ## Installation
 
 OS X & Linux:
@@ -40,8 +38,7 @@ devDependencies: {
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
 ```sh
-make install
-npm test
+npm run dev
 ```
 
 ## Release History
