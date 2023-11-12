@@ -20,7 +20,7 @@ npm install
 
 ## Dependências ultilizadas:
 
-"devDependencies": {
+devDependencies: {
 "@types/express": "^4.17.21",
 "@types/node": "^20.9.0",
 "@typescript-eslint/eslint-plugin": "^6.10.0",
