@@ -1,4 +1,4 @@
-# Compass Uol - API Clinic Vet
+# Compass Uol - API VetClinic
 
 One to two paragraph statement about your product and what it does.
 
