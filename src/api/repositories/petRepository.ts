@@ -2,9 +2,9 @@ import { Tutors } from "../db/data";
 import { Pet } from "../models/pet";
 import { Tutor } from "../models/tutor";
 
-const ERROR_TUTOR_NOT_FOUND = "O tutor não foi encontrado!";
-const ERROR_TUTOR_NOT_PET = "O tutor não possui pets cadastrados!";
-const ERROR_PET_NOT_FOUND = "Pet não encontrado no Tutor";
+const ERROR_TUTOR_NOT_FOUND = "The tutor was not found!";
+const ERROR_TUTOR_NOT_PET = "The tutor does not have registered pets!";
+const ERROR_PET_NOT_FOUND = "Pet not found at Tutor";
 
 export class PetRepository {
   // POST
@@ -12,9 +12,9 @@ export class PetRepository {
     const tutor = await Tutors.findIndex((tutor) => tutor.id === tutorId);
     if (tutor !== -1) {
       Tutors[tutor].pets?.push(props);
-      return "Pet adicionado!";
+      return "Pet added successfully!";
     }
-    return "Tutor não encontrado";
+    return "Tutor not found, please try again";
   }
 
   // PUT
@@ -29,10 +29,10 @@ export class PetRepository {
 
     if (petIndex !== undefined && petIndex !== -1 && tutor.pets) {
       tutor.pets[petIndex] = { ...tutor.pets[petIndex], ...props };
-      return "Pet atualizado";
+      return "Pet updated successfully!";
     }
 
-    return "Pet não encontrado no Tutor";
+    return "Pet not found with the indicated Tutor!";
   }
 
   // DELETE
@@ -59,9 +59,9 @@ export class PetRepository {
       }
 
       tutor.pets.splice(petIndex, 1);
-      return "Pet excluído com sucesso!";
+      return "Pet deleted successfully!";
     } catch (error: any) {
-      throw new Error(`Erro ao excluir o pet: ${error.message}`);
+      throw new Error(`Error deleting pet: ${error.message}`);
     }
   }
 }
