@@ -1,6 +1,6 @@
 # Compass Uol - API VetClinic
 
-One to two paragraph statement about your product and what it does.
+API desenvolvida para uma clínica veterinaria, onde você cria tutores e adiciona pets, conseguindo também excluir tutores e pets!
 
 ![](header.png)
 
