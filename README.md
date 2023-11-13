@@ -11,26 +11,13 @@ git clone https://github.com/gouvei4/desafio-compass-uol.git
 npm install
 ```
 
-Após a instalação, crie um arquivo de configuração chamado `.env` na raiz do projeto e configure as variáveis de ambiente necessárias. Um exemplo de arquivo `.env` pode ser encontrado no arquivo `.env.example`.
-
 ## Uso
 
-A API oferece as seguintes operações:
+A API oferece as seguintes rota:
 
-### 1. Criar uma Tarefa
+### 1. Encontra um tutor
 
-Endpoint: `POST /tasks`
-
-Para criar uma nova tarefa, envie uma requisição POST com o seguinte corpo:
-
-```json
-{
-  "title": "Nome da Tarefa",
-  "description": "Descrição da tarefa",
-  "dueDate": "2023-12-01",
-  "priority": "Alta"
-}
-```
+Endpoint Tutors: `GET /tutors`
 
 ### 2. Atualizar uma Tarefa
 
