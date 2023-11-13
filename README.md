@@ -1,4 +1,4 @@
-# API de Gerenciamento de Tarefas
+# API de Gerenciamento de clínica
 
 Bem-vindo à API de Clínica Veterinária! Esta API foi desenvolvida para facilitar o gerenciamento eficiente de uma clínica, permitindo a criação, atualização e exclusão de tutores e pets.
 
