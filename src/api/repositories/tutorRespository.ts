@@ -9,26 +9,26 @@ export class TutorRepository {
   }
   async create(props: Tutor) {
     const tutors = await this.all();
-    const isExistTutor = tutors?.find((tutor) => {
-      tutor.id === props.id;
-    });
+    const isExistTutor = tutors?.findIndex((tutor) => (tutor.id === props.id));
 
-    if (isExistTutor) {
-      return "Tutor already exists!";
-    }
-
-    return Tutors.push(props);
+    if (isExistTutor === -1) {
+      Tutors.push(props);
+      return "Tutor created successfully!";
+    } else if (isExistTutor !== -1)
+    return "Tutor already exists!";
   }
+
   async update(tutorId: number, props: Partial<Tutor>) {
-    console.log(tutorId, props);
     const tutorIndex = Tutors.findIndex((tutor: Tutor) => tutor.id === tutorId);
-    if (Tutors[tutorIndex]) {
+    if (tutorIndex !== -1) {
       Tutors[tutorIndex] = { ...Tutors[tutorIndex], ...props };
       return "Updated tutor";
     } else {
       return ERROR_TUTOR_NOT_FOUND;
     }
   }
+
+
   async delete(tutorId: number) {
     const tutorIndex = Tutors.findIndex((tutor: Tutor) => tutor.id === tutorId);
     if (tutorIndex !== -1) {

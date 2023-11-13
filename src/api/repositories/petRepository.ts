@@ -26,7 +26,6 @@ export class PetRepository {
     }
 
     const petIndex = tutor.pets?.findIndex((pet) => pet.id === petId);
-
     if (petIndex !== undefined && petIndex !== -1 && tutor.pets) {
       tutor.pets[petIndex] = { ...tutor.pets[petIndex], ...props };
       return "Pet updated successfully!";
