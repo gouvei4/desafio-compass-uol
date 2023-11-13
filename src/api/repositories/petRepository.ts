@@ -11,17 +11,18 @@ export class PetRepository {
   async create(props: Pet, tutorId: number) {
     const tutorIndex = Tutors.findIndex((tutor) => tutor.id === tutorId);
     if (tutorIndex !== -1) {
-        const existingPetIndex = (Tutors[tutorIndex].pets as Pet[])?.findIndex((pet) => pet.id === props.id);
-        if (existingPetIndex === -1) {
-            Tutors[tutorIndex].pets?.push(props);
-            return "Pet added successfully!";
-        } else {
-            return "Pet with this ID already exists for the tutor.";
-        }
+      const existingPetIndex = (Tutors[tutorIndex].pets as Pet[])?.findIndex(
+        (pet) => pet.id === props.id,
+      );
+      if (existingPetIndex === -1) {
+        Tutors[tutorIndex].pets?.push(props);
+        return "Pet added successfully!";
+      } else {
+        return "Pet with this ID already exists for the tutor.";
+      }
     }
     return ERROR_TUTOR_NOT_FOUND;
-}
-
+  }
 
   // PUT
   async update(tutorId: number, petId: number, props: Partial<Pet>) {
@@ -33,8 +34,13 @@ export class PetRepository {
 
     const petIndex = tutor.pets?.findIndex((pet) => pet.id === petId);
     if (petIndex !== undefined && petIndex !== -1 && tutor.pets) {
+      const isPetIdUnique = tutor.pets.every((pet) => pet.id != props.id);
+      if (!isPetIdUnique) {
+        return "Pet with this ID already exists for the tutor. Cannot update.";
+      }
+
       tutor.pets[petIndex] = { ...tutor.pets[petIndex], ...props };
-      return "Pet updated successfully!";
+      return "Pet updated successfully";
     }
 
     return "Pet not found with the indicated Tutor!";
