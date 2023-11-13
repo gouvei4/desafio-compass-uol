@@ -17,12 +17,12 @@ A API oferece as seguintes rota:
 
 ### 1. Encontra um tutor
 
-Endpoint Tutors: `GET /tutors`
+Endpoint Tutors: `GET /tutors` (Tutor)
 
 ### 2. Criar um tutor ou pet
 
-Endpoint: `POST /tutor`
-Endpoint: `POST /pet/:tutorId`
+Endpoint: `POST /tutor` (Tutor)
+Endpoint: `POST /pet/:tutorId` (Pet)
 
 Para criar um tutor ou pet, envie uma requisição POST com o seguinte corpo:
 
@@ -37,16 +37,29 @@ Para criar um tutor ou pet, envie uma requisição POST com o seguinte corpo:
   "zip_code": "CEP" (Number)
 }
 ```
+### PARA PET
+```json
+{
+  "id": "Numero id", (Number)
+  "name": "Nome", (String)
+  "species": "Espécie", (String)
+  "carry": "Tamanho", (String)
+  "weight": "Peso", (Number)
+  "date_of_birth": "Nascimento" (Date)
+}
+```
 
-### 3. Excluir uma Tarefa
+### 3. Atualizar um tutor ou pet
 
-Endpoint: `DELETE /tasks/:id`
+Endpoint: `/tutor/:id` (Tutor)
+Endpoint: `/pet/:petId/tutor/:tutorId` (Pet)
 
-Para excluir uma tarefa, envie uma requisição DELETE para o endpoint correspondente.
+Para excluir um tutor ou pet, envie uma requisição DELETE para o endpoint correspondente.
 
-### 4. Consultar Tarefas
+### 4. Deletar um tutor ou pet
 
-Endpoint: `GET /tasks`
+Endpoint: `/tutor/:id` (Tutor)
+Endpoint: `/pet/:petId/tutor/:tutorId` (Pet)
 
 Para obter a lista de todas as tarefas, faça uma requisição GET para o endpoint acima.
 
