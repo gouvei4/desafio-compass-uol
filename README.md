@@ -1,81 +1,67 @@
-# Compass Uol - API VetClinic
+# API de Gerenciamento de Tarefas
 
-API desenvolvida para uma clínica veterinaria, onde você cria tutores e adiciona pets, conseguindo também excluir tutores e pets!
+Bem-vindo à API de Gerenciamento de Tarefas! Esta API foi desenvolvida para facilitar o gerenciamento eficiente de tarefas em projetos, permitindo a criação, atualização, exclusão e consulta de tarefas.
 
-## Installation
+## Instalação
 
-OS X & Linux:
+Para começar, clone este repositório e instale as dependências utilizando o seguinte comando:
 
-```sh
-npm install 
+```bash
+npm install
 ```
 
-Windows:
+Após a instalação, crie um arquivo de configuração chamado `.env` na raiz do projeto e configure as variáveis de ambiente necessárias. Um exemplo de arquivo `.env` pode ser encontrado no arquivo `.env.example`.
 
-```sh
-npm install 
+## Uso
+
+A API oferece as seguintes operações:
+
+### 1. Criar uma Tarefa
+
+Endpoint: `POST /tasks`
+
+Para criar uma nova tarefa, envie uma requisição POST com o seguinte corpo:
+
+```json
+{
+  "title": "Nome da Tarefa",
+  "description": "Descrição da tarefa",
+  "dueDate": "2023-12-01",
+  "priority": "Alta"
+}
 ```
 
-## Dependências ultilizadas:
+### 2. Atualizar uma Tarefa
 
-devDependencies: {
-"@types/express": "^4.17.21",
-"@types/node": "^20.9.0",
-"@typescript-eslint/eslint-plugin": "^6.10.0",
-"@typescript-eslint/parser": "^6.10.0",
-"eslint": "^8.53.0",
-"prettier": "3.0.3",
-"ts-node": "^10.9.1",
-"ts-node-dev": "^2.0.0",
-"typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "nodemon": "^3.0.1"
-  }
-## Development setup
+Endpoint: `PUT /tasks/:id`
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+Para atualizar uma tarefa existente, envie uma requisição PUT com o seguinte corpo:
 
-```sh
-npm run dev
+```json
+{
+  "title": "Novo Nome da Tarefa",
+  "description": "Nova Descrição da Tarefa",
+  "dueDate": "2023-12-05",
+  "priority": "Média"
+}
 ```
 
-## Release History
+### 3. Excluir uma Tarefa
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+Endpoint: `DELETE /tasks/:id`
 
-## Meta
+Para excluir uma tarefa, envie uma requisição DELETE para o endpoint correspondente.
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+### 4. Consultar Tarefas
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Endpoint: `GET /tasks`
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+Para obter a lista de todas as tarefas, faça uma requisição GET para o endpoint acima.
 
-## Contributing
+## Contribuições
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+## Licença
+
+Este projeto é licenciado sob a [MIT License](LICENSE).
