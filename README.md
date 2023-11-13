@@ -13,8 +13,9 @@ npm install
 
 ## Uso
 
+```bash
 NPM RUN DEV - Para inicial a API
-
+```
 A API oferece as seguintes rota:
 
 ### 1. Encontra um tutor
