@@ -1,12 +1,13 @@
 # API de Gerenciamento de Tarefas
 
-Bem-vindo à API de Gerenciamento de Tarefas! Esta API foi desenvolvida para facilitar o gerenciamento eficiente de tarefas em projetos, permitindo a criação, atualização, exclusão e consulta de tarefas.
+Bem-vindo à API de Clínica Veterinária! Esta API foi desenvolvida para facilitar o gerenciamento eficiente de uma clínica, permitindo a criação, atualização e exclusão de tutores e pets.
 
 ## Instalação
 
 Para começar, clone este repositório e instale as dependências utilizando o seguinte comando:
 
 ```bash
+git clone https://github.com/gouvei4/desafio-compass-uol.git
 npm install
 ```
 
