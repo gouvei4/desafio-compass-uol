@@ -14,7 +14,7 @@ npm install
 ## Uso
 
 ```bash
-NPM RUN DEV - Para inicial a API
+npm run dev - Para iniciar a API
 ```
 A API oferece as seguintes rota:
 
