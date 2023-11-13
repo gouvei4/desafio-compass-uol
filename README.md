@@ -67,4 +67,4 @@ Para obter a lista de todas as tarefas, faça uma requisição GET para o endpoi
 
 ## Autor
 
-Esta API foi desenvolvido por Afonso Gouveia <a href="https://github.com/gouvei4">Afonso</a>.
+Esta API foi desenvolvido por <a href="https://github.com/gouvei4">Afonso Gouveia</a>.
