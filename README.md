@@ -19,18 +19,22 @@ A API oferece as seguintes rota:
 
 Endpoint Tutors: `GET /tutors`
 
-### 2. Atualizar uma Tarefa
+### 2. Criar um tutor ou pet
 
-Endpoint: `PUT /tasks/:id`
+Endpoint: `POST /tutor`
+Endpoint: `POST /pet/:tutorId`
 
-Para atualizar uma tarefa existente, envie uma requisição PUT com o seguinte corpo:
+Para criar um tutor ou pet, envie uma requisição POST com o seguinte corpo:
 
+### PARA TUTOR
 ```json
 {
-  "title": "Novo Nome da Tarefa",
-  "description": "Nova Descrição da Tarefa",
-  "dueDate": "2023-12-05",
-  "priority": "Média"
+  "id": "Numero id", (Number)
+  "name": "Nome", (String)
+  "phone": "Telefone", (Number)
+  "email": "E-mail", (String)
+  "date_of_birth: Date": "Data de nascimento", (Date)
+  "zip_code": "CEP" (Number)
 }
 ```
 
