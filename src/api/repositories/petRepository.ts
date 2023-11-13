@@ -9,13 +9,19 @@ const ERROR_PET_NOT_FOUND = "Pet not found at Tutor";
 export class PetRepository {
   // POST
   async create(props: Pet, tutorId: number) {
-    const tutor = await Tutors.findIndex((tutor) => tutor.id === tutorId);
-    if (tutor !== -1) {
-      Tutors[tutor].pets?.push(props);
-      return "Pet added successfully!";
+    const tutorIndex = Tutors.findIndex((tutor) => tutor.id === tutorId);
+    if (tutorIndex !== -1) {
+        const existingPetIndex = (Tutors[tutorIndex].pets as Pet[])?.findIndex((pet) => pet.id === props.id);
+        if (existingPetIndex === -1) {
+            Tutors[tutorIndex].pets?.push(props);
+            return "Pet added successfully!";
+        } else {
+            return "Pet with this ID already exists for the tutor.";
+        }
     }
-    return "Tutor not found, please try again";
-  }
+    return ERROR_TUTOR_NOT_FOUND;
+}
+
 
   // PUT
   async update(tutorId: number, petId: number, props: Partial<Pet>) {
