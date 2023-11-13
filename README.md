@@ -13,6 +13,8 @@ npm install
 
 ## Uso
 
+NPM RUN DEV - Para inicial a API
+
 A API oferece as seguintes rota:
 
 ### 1. Encontra um tutor
@@ -63,10 +65,6 @@ Endpoint: `/pet/:petId/tutor/:tutorId` (Pet)
 
 Para obter a lista de todas as tarefas, faça uma requisição GET para o endpoint acima.
 
-## Contribuições
+## Autor
 
-Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
-## Licença
-
-Este projeto é licenciado sob a [MIT License](LICENSE).
+Esta API foi desenvolvido por Afonso Gouveia (http://exemplo.com/).
